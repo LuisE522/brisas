@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24 9.8% 10%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 60 9.1% 97.8%;
+    --primary-foreground: 24 9.8% 10%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24 5.7% 82.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* #parallax-container {
+  perspective: 1000px;
+} */
+
+#parallax_container>img {
+  will-change: transform;
+  transition: transform 0.1s;
+  /* Suaviza el movimiento */
+  transform-origin: center;
+  /* Asegúrate de que la rotación se vea bien */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeOnLoad {
+  0% {
+    width: 100%;
+  }
+
+  40% {
+    width: 35%;
+  }
+
+  100% {
+    width: 35%;
+  }
+}
+
+@keyframes fadeOnLoadMobile {
+  0% {
+    width: 100%;
+  }
+
+  40% {
+    width: 50%;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+.divOnLoadMobile {
+  animation: fadeOnLoadMobile 4s linear forwards;
+  /* animation-timeline: auto, scroll();
+  animation-range: 0% 50%; */
+  z-index: 20;
+}
+
+.divOnLoad {
+  animation: fadeOnLoad 4s linear forwards;
+  /* animation-timeline: auto, scroll();
+  animation-range: 0% 50%; */
+  z-index: 20;
+}
+
+@keyframes fadeOnLoadMobile {
+  0% {
+    width: 100%;
+  }
+
+  40% {
+    width: 50%;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+.divOnLoadMobile {
+  animation: fadeOnLoadMobile 4s linear forwards;
+  /* animation-timeline: auto, scroll();
+  animation-range: 0% 50%; */
+  z-index: 20;
+}
+
+@keyframes fadeAndScale {
+  0% {
+    width: 40%;
+    opacity: 0;
+  }
+
+  40% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes MarginTop {
+  0% {
+    margin-top: -100px;
+    opacity: 0;
+  }
+
+  40% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+.danzasFadeAndScale {
+  animation: fadeAndScale 0.5ms linear forwards;
+  animation-timeline: view();
+  animation-range: 0% 50%;
+  transition: opacity 0.5s ease, box-shadow 0.3s ease;
+}
+
+.danzasFade {
+  animation: fade 0.5ms linear forwards;
+  animation-timeline: view();
+  animation-range: 0% 60%;
+  transition: opacity 0.5s ease, box-shadow 0.3s ease;
+}
+.danzasMarginTop {
+  animation: MarginTop 0.5ms linear forwards;
+  animation-timeline: view();
+  animation-range: 0% 50%;
+  transition: opacity 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* .divFaceAndScale {
+  animation: fadeAndScale 0.5ms linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0% 50%;
+  z-index: 20;
+} */
+
+/* .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+
+@font-face {
+  font-family: 'bebas-neue'; /* Nombre de la fuente */
+  src: url('/assets/fonts/BebasNeue-Regular.ttf') format('truetype'); /* Ruta a la fuente */
+  font-weight: normal; /* Grosor de la fuente */
+  font-style: normal; /* Estilo de la fuente */
+}
+
+/* Aplicar la fuente a una clase */
+.bebas-neue {
+  font-family: 'bebas-neue', sans-serif; /* Usa el nombre definido */
+}
+
+.swiper-button-next::after,.swiper-button-prev::after {
+  background-color: black;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px !important;
+}
+
+.img-small {
+  width: 150px;
+  height: 150px;
+}
+.img-medium {
+  width: 200px;
+  height: 200px;
+}
+.img-large {
+  width: 250px;
+  height: 250px;
+}
+
+.danzasCaja:hover {
+  box-shadow: 0 0px 20px rgb(76, 76, 76); /* Sombra al hacer hover */
+}
+
+.animate-move {
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out 200ms;
+  transform: scale(5);
+  opacity: 0;
+}
+
+.transition-bg {
+  transition: background-color 0.3s ease;
+}
+
+/* .animate-move {
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+  transform: scale(5);
+  opacity: 0;
+} */
+ .font-capital::first-letter {
+  font-size: 3em;
+  margin-left: 20px;
+ }
+
+ .grid-infinito > div:nth-child(odd) {
+  top: 150px;
+}
+
+@keyframes MovePlato {
+  0% {
+    transform: translate(50%, -50%); /* Comienza fuera de la pantalla */
+    opacity: 0; /* Comienza invisible */
+  }
+
+  40% {
+    transform: translate(0, 0); /* Se mueve a la posición final */
+    opacity: 1; /* Se hace visible */
+  }
+
+  100% {
+    transform: translate(0, 0); /* Mantiene la posición final */
+  }
+}
+
+.PlatoMove {
+  animation: MovePlato 0.5s linear forwards; /* 0.5s para la duración */
+  position: absolute; /* Asegúrate de que está en posición absoluta */
+  top: -50%; /* Posición inicial */
+  right: -50%; /* Posición inicial */
+}
+
+
+.galeria-gradient {
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}

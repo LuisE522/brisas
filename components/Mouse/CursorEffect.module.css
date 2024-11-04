@@ -1,0 +1,12 @@
+.cursor {
+  position: fixed;
+  width: 80px; /* Mantiene el tamaño para el resplandor */
+  height: 80px; /* Mantiene el tamaño para el resplandor */
+  background: radial-gradient(circle at 0px 0px, transparent 0%, #01745b53 0px); /* Sin color de fondo */
+  border-radius: 50%; /* Mantiene la forma circular */
+  pointer-events: none; /* Para que no interfiera con los clics */
+  transform: translate(-50%, -50%); /* Centra el cursor */
+  transition: box-shadow 0.3s ease; /* Transición solo para el resplandor */
+  box-shadow: 0 0 20px #01745B; /* Resplandor */
+  z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+}
