@@ -6,14 +6,18 @@ import React from "react";
 import Galeria from "../Galeria/Galeria";
 import { useLanguage } from "@/context/LanguageProvider";
 import trs from "@/public/locales/translate.json";
+import { TalleresCategoria_I } from "../Panel/Talleres/T_Categorias";
 
 export interface Talleres {
   id: number;
   image: string;
 }
+interface Props {
+  listCategorias: TalleresCategoria_I[]
+}
 
-export default function Elenco({ imagenes }: { imagenes: Talleres[] }) {
-  const links = imagenes.map((imagen) => imagen.image);
+export default function Elenco({ listCategorias }: Props) {
+  /* const links = imagenes.map((imagen) => imagen.image); */
   const { language } = useLanguage();
 
   const translations = trs as any;
@@ -70,7 +74,16 @@ export default function Elenco({ imagenes }: { imagenes: Talleres[] }) {
             {translations[language].pasion_y_compromiso_subtitulo}
           </p>
         </div>
-        <Galeria links={links} />
+
+        <div className="w-full flex flex-col gap-5">
+          {listCategorias.map((categoria, index) => (
+            <div className="w-full flex flex-col gap-3 relative" key={index}>
+              <h1 className="text-4xl font-bold">{categoria.categoria}</h1>
+              <Galeria taller={categoria.talleres} />
+            </div>
+          ))}
+        </div>
+
       </div>
 
       <div className="max-w-[95%] w-[500px] md:w-[800px] lg:w-[900px] 2xl:w-full 2xl:max-w-screen-2xl mx-auto h-auto pt-5">

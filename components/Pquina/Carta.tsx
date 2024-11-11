@@ -28,7 +28,7 @@ export default function Carta() {
 
       setCategoria(res[0].nombre);
 
-      const asdassa = res.filter((item: any) => item.nombre === "Típico");
+      const asdassa = res.filter((item: any) => item.nombre === "Entradas");
 
       console.log(asdassa)
 

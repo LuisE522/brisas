@@ -3,7 +3,8 @@ import { API_URL } from "@/const";
 
 
 export const getTalleres = async (): Promise<any> => {
-    const url = API_URL + "/talleres/list";
+    //const url = API_URL + "/talleres/list";
+    const url = API_URL + "/talleres/list/categoria";
 
     try {
         const response = await fetch(url, {

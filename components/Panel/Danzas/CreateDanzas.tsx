@@ -18,6 +18,7 @@ import { API_URL } from "@/const";
 import { getAuthTokenClient } from "@/lib/getUserData";
 import { toast } from "react-toastify";
 import { Textarea } from "@/components/ui/textarea";
+import { convertToSlug } from "@/lib/utils";
 
 interface Props {
   onClose: () => void;
@@ -132,17 +133,6 @@ export default function CreateDanzas({ onClose }: Props) {
     const nuevoNombre = e.target.value;
     setNombre({ ...nombre, es: nuevoNombre });
     setSlug(convertToSlug(nuevoNombre));
-  };
-
-  const convertToSlug = (text: string) => {
-    return text
-      .toLowerCase() // Convierte a minúsculas
-      .trim() // Elimina espacios al principio y al final
-      .replace(/[\s]+/g, "-") // Reemplaza espacios con guiones
-      .replace(/[^\w\-]+/g, "") // Elimina caracteres no alfanuméricos
-      .replace(/\-\-+/g, "-") // Reemplaza múltiples guiones con uno solo
-      .replace(/^-+/, "") // Elimina guiones al principio
-      .replace(/-+$/, ""); // Elimina guiones al final
   };
 
   const onTranslate = async () => {

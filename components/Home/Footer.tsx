@@ -53,20 +53,26 @@ export default function Footer() {
         <div className="w-full my-10 border-b-2 border-[#D9D9D9]"></div>
 
         <div className="max-w-[95%] w-[1080px] 2xl:w-full 2xl:max-w-screen-2xl mx-auto grid grid-cols-4 xl:grid-cols-5 gap-3 2xl:gap-5">
-          <div className="w-full flex flex-col gap-3 2xl:gap-5">
+          <div className="w-full flex flex-col gap-3 2xl:gap-5 capitalize">
             <Link href="/nosotros" className="text-xl 2xl:text-2xl font-bold">
-              Sobre nosotros
+              {translations[language].puquina_nosotros}
             </Link>
             <div className="w-full flex flex-col gap-3">
-              <Link href="/historia">Nuestra historia</Link>
-              <Link href="/nosotros">Misisión y Visión</Link>
-              <p>Consejo Directivo</p>
-              <p>Trabaja con Nosotros</p>
-              <p>Promociones</p>
+              <a href="/historia">
+                {translations[language].footer_nuestra_historia}
+              </a>
+              <Link href="/nosotros">
+                {translations[language].footer_consejo_directivo}
+              </Link>
+              <p>{translations[language].footer_consejo_directivo}</p>
+              <p>{translations[language].footer_trabaja_con_nosotros}</p>
+              <p>{translations[language].footer_promociones}</p>
             </div>
           </div>
           <div className="w-full flex flex-col gap-5">
-            <h1 className="text-xl 2xl:text-2xl font-bold">Eventos</h1>
+            <h1 className="text-xl 2xl:text-2xl font-bold">
+              {translations[language].footer_eventos}
+            </h1>
             <div className="w-full flex flex-col gap-3">
               <Link
                 href={"https://acbt-ticketera.vercel.app/eventos/almuerzo-show"}
@@ -83,18 +89,24 @@ export default function Footer() {
                 Noches de Folklore
               </Link>
               <Link href={"/talleres"}>Talleres</Link>
-              <Link href={"/eventos/culturales"}>Eventos Culturales</Link>
-              <Link href="/eventos/externos">Eventos Externos</Link>
+              <Link href={"/eventos/culturales"}>
+                {translations[language].footer_eventos_culturales}
+              </Link>
+              <Link href="/eventos/externos">
+                {translations[language].footer_eventos_externos}
+              </Link>
             </div>
           </div>
           <div className="w-full flex flex-col gap-5">
-            <h1 className="text-xl 2xl:text-2xl font-bold">Cultural</h1>
+            <h1 className="text-xl 2xl:text-2xl font-bold">
+              {translations[language].footer_cultural}
+            </h1>
             <div className="w-full flex flex-col gap-3">
-              <p>Agenda Cultural</p>
-              <p>Revista Brisas</p>
-              <p>Noticias</p>
-              <p>Estudiantina</p>
-              <p>Radio</p>
+              <p>{translations[language].footer_agenda_cultural}</p>
+              <p>{translations[language].footer_revista_brisas}</p>
+              <p>{translations[language].footer_noticias}</p>
+              <p>{translations[language].footer_estudiantina}</p>
+              <p>{translations[language].footer_radio}</p>
             </div>
           </div>
           <div className="w-full flex flex-col gap-5">
@@ -105,25 +117,29 @@ export default function Footer() {
               Puquina Q’ocha
             </Link>
             <div className="w-full flex flex-col gap-3">
-              <Link href="/puquina-qocha#carta_digital">Carta Digital</Link>
+              <a href="/puquina-qocha#carta_digital">
+                {translations[language].footer_puquina_carta_digital}
+              </a>
               <Link
                 href={
                   "https://drive.google.com/file/d/155FCBm7fASrwjYI8WUQ9CvDoOAvKuZ8z/view?usp=drive_link"
                 }
                 target="_blank"
               >
-                Carta de Cocteles
+                {translations[language].footer_puquina_carta_cocteles}
               </Link>
             </div>
           </div>
           <div className="w-full flex flex-col gap-5">
-            <h1 className="text-xl 2xl:text-2xl font-bold">Asociados</h1>
+            <h1 className="text-xl 2xl:text-2xl font-bold">
+              {translations[language].asociados}
+            </h1>
             <div className="w-full flex flex-col gap-3">
-              <p>Comunicados</p>
-              <p>Adminsiones</p>
-              <p>Asambleas</p>
-              <p>Actas</p>
-              <p>Estados Financieros</p>
+              <p>{translations[language].footer_comunicados}</p>
+              <p>{translations[language].footer_admisiones}</p>
+              <p>{translations[language].footer_asambleas}</p>
+              <p>{translations[language].footer_actas}</p>
+              <p>{translations[language].footer_estados_financieros}</p>
             </div>
           </div>
         </div>
@@ -141,15 +157,15 @@ export default function Footer() {
           />
           <div className="w-full flex flex-col gap-3">
             <div className="w-full flex flex-row gap-3 justify-center">
-              <div className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
+              <Link href={"https://www.facebook.com/BrisasdelTiticacaPeru"} target="_blank" className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
                 <FaFacebookF color="white" />
-              </div>
-              <div className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
+              </Link>
+              <Link href={"https://www.instagram.com/brisasdeltiticaca/"} target="_blank" className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
                 <FaInstagram color="white" />
-              </div>
-              <div className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
+              </Link>
+              <Link href={"https://www.youtube.com/@BrisasDelTiticacaOficial"} target="_blank" className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
                 <FaYoutube color="white" />
-              </div>
+              </Link>
               <div className="w-fit p-2 h-full bg-black rounded-lg flex justify-center items-center text-xl">
                 <FaWhatsapp color="white" />
               </div>
@@ -186,11 +202,15 @@ export default function Footer() {
             </AccordionTrigger>
             <AccordionContent>
               <ul className="w-full flex flex-col gap-5 pl-5">
-                <Link href="/historia">Nuestra historia</Link>
-                <Link href="/nosotros">Misisión y Visión</Link>
-                <li>Consejo Directivo</li>
-                <li>Trabaja con Nosotros</li>
-                <li>Promociones</li>
+                <a href="/historia">
+                  {translations[language].footer_nuestra_historia}
+                </a>
+                <Link href="/nosotros">
+                  {translations[language].footer_consejo_directivo}
+                </Link>
+                <p>{translations[language].footer_consejo_directivo}</p>
+                <p>{translations[language].footer_trabaja_con_nosotros}</p>
+                <p>{translations[language].footer_promociones}</p>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -217,10 +237,13 @@ export default function Footer() {
                 >
                   Noches de Folklore
                 </Link>
-                {/* <li>Noches Interculturales</li> */}
                 <Link href={"/talleres"}>Talleres</Link>
-                <Link href={"/eventos/culturales"}>Eventos Culturales</Link>
-                <Link href="/eventos/externos">Eventos Externos</Link>
+                <Link href={"/eventos/culturales"}>
+                  {translations[language].footer_eventos_culturales}
+                </Link>
+                <Link href="/eventos/externos">
+                  {translations[language].footer_eventos_externos}
+                </Link>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -231,11 +254,11 @@ export default function Footer() {
             </AccordionTrigger>
             <AccordionContent>
               <ul className="w-full flex flex-col gap-5 pl-5">
-                <li>Agenda Cultural</li>
-                <li>Revista Brisas</li>
-                <li>Noticias</li>
-                <li>Estudiantina</li>
-                <li>Radio</li>
+                <p>{translations[language].footer_agenda_cultural}</p>
+                <p>{translations[language].footer_revista_brisas}</p>
+                <p>{translations[language].footer_noticias}</p>
+                <p>{translations[language].footer_estudiantina}</p>
+                <p>{translations[language].footer_radio}</p>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -246,14 +269,16 @@ export default function Footer() {
             </AccordionTrigger>
             <AccordionContent>
               <ul className="w-full flex flex-col gap-5 pl-5">
-                <Link href="/puquina-qocha#carta_digital">Carta Digital</Link>
+                <a href="/puquina-qocha#carta_digital">
+                  {translations[language].footer_puquina_carta_digital}
+                </a>
                 <Link
                   href={
                     "https://drive.google.com/file/d/155FCBm7fASrwjYI8WUQ9CvDoOAvKuZ8z/view?usp=drive_link"
                   }
                   target="_blank"
                 >
-                  Carta de Cocteles
+                  {translations[language].footer_puquina_carta_cocteles}
                 </Link>
               </ul>
             </AccordionContent>
@@ -265,11 +290,11 @@ export default function Footer() {
             </AccordionTrigger>
             <AccordionContent>
               <ul className="w-full flex flex-col gap-5 pl-5">
-                <li>Comunicados</li>
-                <li>Adminsiones</li>
-                <li>Asambleas</li>
-                <li>Actas</li>
-                <li>Estados Financieros</li>
+                <p>{translations[language].footer_comunicados}</p>
+                <p>{translations[language].footer_admisiones}</p>
+                <p>{translations[language].footer_asambleas}</p>
+                <p>{translations[language].footer_actas}</p>
+                <p>{translations[language].footer_estados_financieros}</p>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -286,15 +311,27 @@ export default function Footer() {
           />
 
           <div className="w-full flex flex-row gap-3 justify-center">
-            <div className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center">
+            <Link
+              href={"https://www.facebook.com/BrisasdelTiticacaPeru"}
+              target="_blank"
+              className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center"
+            >
               <FaFacebookF color="white" size={25} />
-            </div>
-            <div className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center">
+            </Link>
+            <Link
+              href={"https://www.instagram.com/brisasdeltiticaca/"}
+              target="_blank"
+              className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center"
+            >
               <FaInstagram color="white" size={25} />
-            </div>
-            <div className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center">
+            </Link>
+            <Link
+              href={"https://www.youtube.com/@BrisasDelTiticacaOficial"}
+              target="_blank"
+              className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center"
+            >
               <FaYoutube color="white" size={25} />
-            </div>
+            </Link>
             <div className="w-fit p-2 lg:p-0 lg:w-full h-full bg-black rounded-lg flex justify-center items-center">
               <FaWhatsapp color="white" size={25} />
             </div>

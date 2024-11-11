@@ -17,6 +17,7 @@ export const POST = async (req: NextRequest) => {
 
     if (onUpdate != null) {
       if (onUpdate.includes("github") == false) {
+        //const fileToDelete = join("var", "www", "brisas", onUpdate);
         const fileToDelete = join(process.cwd(), "public", onUpdate);
         try {
           await fs.unlink(fileToDelete); // Eliminar el archivo
@@ -42,6 +43,7 @@ export const POST = async (req: NextRequest) => {
 
     const relativeUploadDir = `/uploads${ruta ? ruta : ""}`;
 
+    //const uploadDir = join("var", "www", "brisas", "public", relativeUploadDir);
     const uploadDir = join(process.cwd(), "public", relativeUploadDir);
 
     await fs.mkdir(uploadDir, { recursive: true });

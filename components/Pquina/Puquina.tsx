@@ -3,7 +3,7 @@
 import Image from "next/image";
 import NavTransparent from "../Home/NavTransparent";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Nosotros from "./Nosotros";
 import Reseña from "./Reseña";
 import Mapa from "./Mapa";
@@ -13,13 +13,47 @@ import Info from "./Info";
 import Contactanos from "./Contactanos";
 import { useLanguage } from "@/context/LanguageProvider";
 import trs from "@/public/locales/translate.json";
+import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import YouTubeAudioPlayer from "../Historia/Audio";
 
 export default function Puquina() {
   const { language } = useLanguage();
   const translations = trs as any;
+
+  const [isMute, setIsMute] = useState(true);
+  const audioRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.muted = isMute;
+    }
+  }, [isMute]);
+
+  const toggleMute = () => {
+    setIsMute((prev) => !prev);
+  };
+
   return (
     <>
       <div className="h-[250px] sm:h-[350px] md:h-screen w-full absolute top-0 z-0">
+        <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5 lg:bottom-20 lg:left-10 z-50">
+          <div className="bg-white rounded-full aspect-square h-[30px] lg:h-[50px] w-[30px] lg:w-[50px] 2xl:mt-7 flex justify-center items-center">
+            {isMute ? (
+              <FaVolumeMute
+                color="black"
+                className="cursor-pointer text-base md:text-lg lg:text-2xl"
+                onClick={toggleMute}
+              />
+            ) : (
+              <FaVolumeUp
+                color="black"
+                className="cursor-pointer text-base md:text-lg lg:text-2xl"
+                onClick={toggleMute}
+              />
+            )}
+            <YouTubeAudioPlayer videoId="Bp1i13PR9bg" onMute={isMute} />
+          </div>
+        </div>
         <div className="bg-black/60 w-full h-full absolute top-0"></div>
         {/* Imagen de fondo */}
         <Image

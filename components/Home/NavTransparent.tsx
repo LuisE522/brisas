@@ -74,7 +74,7 @@ export default function NavTransparent() {
       >
         <div className="w-full hidden lg:grid md:grid-cols-[auto_40%_auto] gap-3 md:gap-0 justify-between h-auto p-3 md:px-10 md:h-[124px] 2xl:h-[150px] items-center text-base">
           <div className="w-full hover:h-full items-center text-white flex justify-start gap-5 text-sm xl:text-base 2xl:text-2xl">
-            <Link href="/danzas">{translations[language].inicio}</Link>
+            <a href="/danzas">{translations[language].inicio}</a>
             <div className="h-full relative group cursor-pointer">
               <div className="flex items-center h-full">
                 {translations[language].eventos}
@@ -95,7 +95,7 @@ export default function NavTransparent() {
               </div>
             </div>
             <Link href="/nosotros">{translations[language].nosotros}</Link>
-            <Link href="/historia">{translations[language].historia}</Link>
+            <a href="/historia">{translations[language].historia}</a>
             <Link
               href="https://sistemas.brisasdeltiticaca.com/intranet"
               target="_blank"
@@ -115,7 +115,7 @@ export default function NavTransparent() {
           </Link>
           <div className="hidden text-white w-full md:flex flex-row justify-end gap-10 items-center">
             <div className="w-full flex justify-end gap-8 items-center">
-              <Link href={"/puquina-qocha"}>
+              <a href={"/puquina-qocha"}>
                 <Image
                   unoptimized
                   src={"/assets/images/logo nav_Puquina_Qocha.png"}
@@ -124,7 +124,7 @@ export default function NavTransparent() {
                   alt="Puquina Q´ocha"
                   className="w-auto h-[60px] 2xl:h-[90px]"
                 />
-              </Link>
+              </a>
               <Link href="/talleres">
                 <Image
                   unoptimized
@@ -163,7 +163,7 @@ export default function NavTransparent() {
 
         <div className="w-full grid grid-cols-3 md:grid-cols-[auto_50%_auto] gap-1 items-center justify-between px-3 sm:px-5 py-3 md:px-10 text-base z-[9999] lg:hidden">
           <div className="w-full flex flex-row gap-3 items-center">
-            <Link href={"/puquina-qocha"}>
+            <a href={"/puquina-qocha"}>
               <Image
                 unoptimized
                 src={"/assets/images/logo nav_Puquina_Qocha.png"}
@@ -172,7 +172,7 @@ export default function NavTransparent() {
                 alt="Puquina Q´ocha"
                 className="w-auto h-[20px] min-[450px]:h-[30px] sm:h-[40px] md:h-[60px]"
               />
-            </Link>
+            </a>
             <Link href="/talleres">
               <Image
                 unoptimized
@@ -230,9 +230,13 @@ export default function NavTransparent() {
               isAnimating ? "translate-y-0" : "-translate-y-full"
             }`}
           >
-            <IoIosCloseCircle color="white" className="absolute top-5 right-5 z-50 text-3xl cursor-pointer" onClick={toggleSlider} />
+            <IoIosCloseCircle
+              color="white"
+              className="absolute top-5 right-5 z-50 text-3xl cursor-pointer"
+              onClick={toggleSlider}
+            />
             <div className="px-7 py-7 flex flex-col gap-5 text-white">
-              <Link
+              <a
                 className={`hover:text-[#23B3F0] ${
                   pathname == "/danzas" ? "text-[#23b3f0]" : ""
                 }`}
@@ -240,7 +244,7 @@ export default function NavTransparent() {
                 onClick={toggleSlider}
               >
                 {translations[language].inicio}
-              </Link>
+              </a>
               <div
                 className={`relative ${
                   pathname == "/danzasqw" ? "text-[#23b3f0]" : ""
@@ -290,7 +294,7 @@ export default function NavTransparent() {
               >
                 {translations[language].nosotros}
               </Link>
-              <Link
+              <a
                 className={`hover:text-[#23B3F0] ${
                   pathname == "/historia" ? "text-[#23b3f0]" : ""
                 }`}
@@ -298,7 +302,7 @@ export default function NavTransparent() {
                 onClick={toggleSlider}
               >
                 {translations[language].historia}
-              </Link>
+              </a>
               <Link
                 className="hover:text-[#23B3F0] "
                 href="https://sistemas.brisasdeltiticaca.com/intranet"

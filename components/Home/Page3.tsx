@@ -38,7 +38,7 @@ export default function Page3({ i_images, d_images }: Props) {
       <div className="w-full h-screen absolute overflow-hidden top-0 left-0">
         <div className="h-full relative">
           <div className="w-full absolute top-0 left-0 h-[60px] sm:h-[70px] md:h-[100px] xl:h-[124px] flex justify-between py-3 px-2 gap-2 sm:px-5 md:px-10">
-            <Link href="/talleres" className="z-50">
+            <a href="/talleres" className="z-50">
               <Image
                 unoptimized
                 src={`/assets/images/logo_CFA_Brisas_Vertical.png`}
@@ -47,7 +47,7 @@ export default function Page3({ i_images, d_images }: Props) {
                 alt="Logo"
                 className="h-full w-auto z-50"
               />
-            </Link>
+            </a>
             <Image
               unoptimized
               src="/assets/images/nav_logo.png"
@@ -56,7 +56,7 @@ export default function Page3({ i_images, d_images }: Props) {
               height={0}
               className="w-auto h-full"
             />
-            <Link href="/puquina-qocha" className="z-50">
+            <a href="/puquina-qocha" className="z-50">
               <Image
                 unoptimized
                 src={`/assets/images/logo nav_Puquina_Qocha.png`}
@@ -65,7 +65,7 @@ export default function Page3({ i_images, d_images }: Props) {
                 alt="Logo"
                 className="h-full w-auto"
               />
-            </Link>
+            </a>
           </div>
 
           <div className="flex flex-col gap-5 md:hidden w-full h-fit top-[80px] absolute">
@@ -90,9 +90,9 @@ export default function Page3({ i_images, d_images }: Props) {
                 </div>
                 <Link
                   href={
-                    "https://acbt-ticketera.vercel.app/eventos/almuerzo-show"
+                    "/eventos?type=almuerzo"
                   }
-                  target="_blank"
+                  /* target="_blank" */
                   /* onMouseEnter={() => setChangeText("almuerzo-show")}
                   onMouseLeave={() => setChangeText("")} */
                   className={`${
@@ -118,9 +118,9 @@ export default function Page3({ i_images, d_images }: Props) {
                 </div>
                 <Link
                   href={
-                    "https://acbt-ticketera.vercel.app/eventos/noche-de-folklore"
+                    "/eventos?type=noche"
                   }
-                  target="_blank"
+                  /* target="_blank" */
                   /* onMouseEnter={() => setChangeText("noche-folklore")}
                   onMouseLeave={() => setChangeText("")} */
                   className={`${
@@ -190,9 +190,9 @@ export default function Page3({ i_images, d_images }: Props) {
                       </div>
                       <Link
                         href={
-                          "https://acbt-ticketera.vercel.app/eventos/almuerzo-show"
+                          "/eventos?type=almuerzo"
                         }
-                        target="_blank"
+                        /* target="_blank" */
                         /* onMouseEnter={() => setChangeText("almuerzo-show")}
                         onMouseLeave={() => setChangeText("")} */
                         className={`${
@@ -218,9 +218,9 @@ export default function Page3({ i_images, d_images }: Props) {
                       </div>
                       <Link
                         href={
-                          "https://acbt-ticketera.vercel.app/eventos/noche-de-folklore"
+                          "/eventos?type=noche"
                         }
-                        target="_blank"
+                        /* target="_blank" */
                         /* onMouseEnter={() => setChangeText("noche-folklore")}
                         onMouseLeave={() => setChangeText("")} */
                         className={`${

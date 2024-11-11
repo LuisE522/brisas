@@ -31,7 +31,6 @@ export default function EventosCulturales({
           width={1920}
           height={1080}
           quality={100}
-          unoptimized
           className="w-full h-full object-cover"
         />
       </div>

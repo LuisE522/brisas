@@ -55,6 +55,10 @@ export default function Danzas() {
       danza: "yakumama",
       link: "7Q7UTTEBt6A",
     },
+    {
+      danza: "llamerada",
+      link: "CfTXEUDJTKQ"
+    }
   ];
 
   const [showModalVideoDance, setShowModalVideoDance] = useState<string | null>(null);
@@ -313,7 +317,7 @@ export default function Danzas() {
                       alt="alt"
                       width={300}
                       height={300}
-                      className="w-[80px] sm:w-[110px] md:w-[250px] xl:w-[300px] h-auto"
+                      className="w-[80px] sm:w-[110px] md:w-[150px] lg:w-[250px] xl:w-[300px] h-auto"
                     />
                   </div>
                   <div className="w-full flex flex-col md:flex-row gap-1 md:gap-5 lg:gap-10 md:items-center">
@@ -349,7 +353,7 @@ export default function Danzas() {
                     alt="alt"
                     width={300}
                     height={300}
-                    className="w-[100px] sm:w-[130px] md:w-[250px] xl:w-[300px] h-auto"
+                    className="w-[100px] sm:w-[130px] md:w-[150px] lg:w-[250px] xl:w-[300px] h-auto"
                   />
                 </div>
                 <div className="w-full flex flex-col md:flex-row gap-1 md:gap-5 lg:gap-10 md:items-center">
@@ -390,7 +394,7 @@ export default function Danzas() {
                       alt="alt"
                       width={300}
                       height={300}
-                      className="w-[100px] sm:w-[120px] md:w-[250px] xl:w-[300px] h-auto"
+                      className="w-[100px] sm:w-[120px] md:w-[150px] lg:w-[250px] xl:w-[300px] h-auto"
                     />
                   </div>
                   <div className="w-full flex flex-col md:flex-row gap-1 md:gap-5 lg:gap-10 md:items-center">
@@ -423,12 +427,20 @@ export default function Danzas() {
         <div className="-mt-36 flex flex-col gap-20 md:gap-32">
           <div className="max-w-[95%] w-[500px] md:w-[800px] lg:w-[1080px] 2xl:w-full 2xl:max-w-screen-2xl mx-auto h-[130px] sm:h-[220px] md:h-[250px] lg:h-[430px] xl:h-[500px] 2xl:h-[550px] relative flex justify-center gap-3 danzasFade">
             <div className="h-full  top-0 left-0 w-full md:w-[40%] flex justify-center flex-col md:gap-3 z-50">
-              <h1
-                className="bebas-neue text-white text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl z-50   leading-none"
-                style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 2)" }}
-              >
-                {translations[language].danza_llamerada_titulo}
-              </h1>
+              <div className="w-full flex flex-col md:flex-row gap-1 md:gap-5 lg:gap-10 md:items-center">
+                <h1
+                  className="bebas-neue text-white text-xl md:text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl z-50   leading-none"
+                  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 2)" }}
+                >
+                  {translations[language].danza_llamerada_titulo}
+                </h1>
+                <span
+                  className="uppercase z-10 w-fit bg-[#FF9900] text-white text-[6px] 2xl:text-base py-px px-1 md:p-1 lg:px-4 lg:py-2 rounded-lg lg:rounded-xl flex justify-center items-center cursor-pointer"
+                  onClick={() => showVideoDance("llamerada")}
+                >
+                  {translations[language].ver_danza}
+                </span>
+              </div>
               <p className="text-white text-[8px] min-[400px]:text-[9px] sm:text-[11px] xl:text-base 2xl:text-xl">
                 {translations[language].danza_llamerada_descripcion}
               </p>
@@ -438,7 +450,7 @@ export default function Danzas() {
               alt="alt"
               width={700}
               height={500}
-              className="h-full w-auto"
+              className="h-full w-auto md:max-w-[70%]"
             />
           </div>
 

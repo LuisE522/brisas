@@ -24,6 +24,7 @@ const Sidebar = () => {
   /* console.log(isAdmin); */
 
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isEventosOpen, setIsEventosOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Controla la visibilidad del sidebar
   const pathname = usePathname();
 
@@ -63,9 +64,8 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full transition-transform duration-300 ease-in-out overflow-y-auto bg-[#12141C] ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:w-[250px] w-64 z-50`}
+        className={`fixed top-0 left-0 h-full transition-transform duration-300 ease-in-out overflow-y-auto bg-[#12141C] ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 md:w-[250px] w-64 z-50`}
       >
         <div className="h-full w-full flex flex-col gap-5">
           <div className="min-h-[70px] w-full flex justify-center items-center border-b-2 border-white/20">
@@ -76,107 +76,132 @@ const Sidebar = () => {
               <Link
                 href={"/admin"}
                 onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname === "/admin" && "bg-white/10 "
-                }`}
+                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin" && "bg-white/10 "
+                  }`}
               >
                 <FaHome /> Home
               </Link>
-              <Link
-                href={"/admin/evento"}
-                onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname.includes("/admin/evento") && "bg-white/10 "
-                }`}
-              >
-                <MdEventAvailable /> Eventos
-              </Link>
+
+              <div>
+                <button
+                  onClick={() => setIsEventosOpen(!isEventosOpen)}
+                  className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/usuarios" ||
+                    pathname === "/admin/roles" ||
+                    pathname === "/admin/permisos"
+                    ? "bg-white/10 "
+                    : ""
+                    }`}
+                >
+                  <MdEventAvailable /> Eventos{" "}
+                  {isEventosOpen ? <FaAngleRight /> : <FaAngleDown />}
+                </button>
+                {isEventosOpen && (
+                  <div className="pl-5 mt-2 flex flex-col gap-2 transition-all duration-300">
+                    <Link
+                      href={"/admin/evento/culturales"}
+                      onClick={handleLinkClick}
+                      className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/usuarios" && "bg-white/10 "
+                        }`}
+                    >
+                      <FaUsers /> Eventos culturales
+                    </Link>
+                    <Link
+                      href={"/admin/evento/nuestros"}
+                      onClick={handleLinkClick}
+                      className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/roles" && "bg-white/10 "
+                        }`}
+                    >
+                      <MdAdminPanelSettings /> Nuestros eventos
+                    </Link>
+                    <Link
+                      href={"/admin/evento/externos"}
+                      onClick={handleLinkClick}
+                      className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/roles" && "bg-white/10 "
+                        }`}
+                    >
+                      <MdAdminPanelSettings /> Eventos externos
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link
                 href={"/admin/promociones"}
                 onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname === "/admin/promociones" && "bg-white/10 "
-                }`}
+                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/promociones" && "bg-white/10 "
+                  }`}
               >
                 <RiDiscountPercentFill /> Promociones
               </Link>
               <Link
                 href={"/admin/talleres"}
                 onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname === "/admin/talleres" && "bg-white/10 "
-                }`}
+                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/talleres" && "bg-white/10 "
+                  }`}
               >
                 <GrWorkshop /> Talleres
               </Link>
               <Link
                 href={"/admin/platos"}
                 onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname === "/admin/noticias" && "bg-white/10 "
-                }`}
+                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/noticias" && "bg-white/10 "
+                  }`}
               >
                 <IoFastFoodSharp /> Platos
               </Link>
               <Link
                 href={"/admin/danzas"}
                 onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname.includes("/admin/danzas") && "bg-white/10 "
-                }`}
+                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname.includes("/admin/danzas") && "bg-white/10 "
+                  }`}
               >
                 <MdOutlineSportsMartialArts /> Danzas
               </Link>
               <Link
                 href={"/admin/fundadores"}
                 onClick={handleLinkClick}
-                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                  pathname.includes("/admin/fundadores") && "bg-white/10 "
-                }`}
+                className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname.includes("/admin/fundadores") && "bg-white/10 "
+                  }`}
               >
                 <FaUsers /> Fundadores
               </Link>
               {roles?.some(
                 (rol: any) => rol.rol.nombre === "Administrador"
               ) && (
-                <div>
-                  <button
-                    onClick={() => setIsAdminOpen(!isAdminOpen)}
-                    className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                      pathname === "/admin/usuarios" ||
-                      pathname === "/admin/roles" ||
-                      pathname === "/admin/permisos"
+                  <div>
+                    <button
+                      onClick={() => setIsAdminOpen(!isAdminOpen)}
+                      className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/usuarios" ||
+                        pathname === "/admin/roles" ||
+                        pathname === "/admin/permisos"
                         ? "bg-white/10 "
                         : ""
-                    }`}
-                  >
-                    <RiAdminFill /> Admin{" "}
-                    {isAdminOpen ? <FaAngleRight /> : <FaAngleDown />}
-                  </button>
-                  {isAdminOpen && (
-                    <div className="pl-5 mt-2 flex flex-col gap-2 transition-all duration-300">
-                      <Link
-                        href={"/admin/usuarios"}
-                        onClick={handleLinkClick}
-                        className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                          pathname === "/admin/usuarios" && "bg-white/10 "
                         }`}
-                      >
-                        <FaUsers /> Usuarios
-                      </Link>
-                      <Link
-                        href={"/admin/roles"}
-                        onClick={handleLinkClick}
-                        className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${
-                          pathname === "/admin/roles" && "bg-white/10 "
-                        }`}
-                      >
-                        <MdAdminPanelSettings /> Roles
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              )}
+                    >
+                      <RiAdminFill /> Admin{" "}
+                      {isAdminOpen ? <FaAngleRight /> : <FaAngleDown />}
+                    </button>
+                    {isAdminOpen && (
+                      <div className="pl-5 mt-2 flex flex-col gap-2 transition-all duration-300">
+                        <Link
+                          href={"/admin/usuarios"}
+                          onClick={handleLinkClick}
+                          className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/usuarios" && "bg-white/10 "
+                            }`}
+                        >
+                          <FaUsers /> Usuarios
+                        </Link>
+                        <Link
+                          href={"/admin/roles"}
+                          onClick={handleLinkClick}
+                          className={`w-full px-3 py-2 flex flex-row gap-2 items-center rounded-lg transition-all duration-700 ${pathname === "/admin/roles" && "bg-white/10 "
+                            }`}
+                        >
+                          <MdAdminPanelSettings /> Roles
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                )}
             </div>
             <div className="flex flex-col gap-3 p-5">
               <Link

@@ -34,7 +34,7 @@ export default async function ElencoPage() {
 
   return (
     <>
-      <Elenco imagenes={res} />
+      <Elenco listCategorias={res} />
     </>
   );
 }

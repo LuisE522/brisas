@@ -145,7 +145,7 @@ export default function Page2({ fundadores }: { fundadores: any }) {
                 onClick={toggleMute}
               />
             )}
-            <YouTubeAudioPlayer videoId="K56u86QK-Yc" onMute={isMute} />
+            <YouTubeAudioPlayer videoId="0YG42AcC-Bs" onMute={isMute} />
           </div>
         </div>
 
@@ -191,15 +191,14 @@ export default function Page2({ fundadores }: { fundadores: any }) {
         </div>
       </div>
 
-      <div id="img3" className="my-20 flex flex-col gap-3 md:gap-10">
+      {/* <div id="img3" className="my-20 flex flex-col gap-3 md:gap-10">
         <h1 className="text-white text-2xl sm:text-6xl 2xl:text-8xl bebas-neue text-center">
           Past- presidente
         </h1>
         <div className="w-[95%] mx-auto">
-          {/* <CaroucelHistoria /> */}
           <LineaDelTiempo />
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="w-full h-screen relative" id="img3">
         <Image

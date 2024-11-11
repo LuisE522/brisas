@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import trs from "@/public/locales/translate.json";
+import CaroucelEvetos from "../Evento/CaroucelEvetos";
+import ContactanosExternos from "./ContactanosExternos";
 
 export default function EventosExternos() {
   const { language } = useLanguage();
@@ -83,7 +85,7 @@ export default function EventosExternos() {
         <div className="w-full h-full mt-20 sm:mt-32 flex flex-col gap-10 absolute top-0 text-white">
           <div className="w-[300px] sm:w-[500px] 2xl:w-[650px] max-w-[95%] mx-auto flex flex-col gap-5">
             <Image
-              src="/assets/images/eventos-externos/alquila_con_nosotros.png"
+              src={`/assets/images/eventos-externos/${language == 'es' ? 'alquila_con_nosotros.png' : 'alquila_con_nosotros_en.png'}`}
               alt="alt"
               unoptimized
               width={0}
@@ -280,7 +282,7 @@ export default function EventosExternos() {
 
         <div className="w-full relative bg-black">
           <Image
-            src="/assets/images/eventos-externos/personaje1.png"
+            src={`/assets/images/eventos-externos/${language == 'es' ? 'personaje1' : 'personaje1_en'}.png`}
             alt="alt"
             unoptimized
             width={0}
@@ -290,44 +292,13 @@ export default function EventosExternos() {
         </div>
       </div>
 
-      <div className="w-full h-auto relative bg-black" id="consultar">
-        <div className="max-w-[90%] w-[500px] md:w-[800px] lg:w-[900px] 2xl:w-full 2xl:max-w-screen-xl mx-auto py-20 grid grid-cols-2 justify-center gap-28">
-          <div className="w-full flex flex-col gap-5 text-white">
-            <h1 className="text-4xl font-bold">
-              {translations[language].externos_contacto_titulo}
-            </h1>
-            <p className="text-2xl">
-              {translations[language].externos_contacto_descripcion}
-            </p>
-          </div>
-          <div className="w-full flex flex-col gap-3">
-            <h1 className="text-white text-4xl">
-              {translations[language].contacto}
-            </h1>
-            <input
-              type="text"
-              name=""
-              id=""
-              className="px-3 bg-white outline-none rounded-xl h-[50px]"
-            />
-            <input
-              type="text"
-              name=""
-              id=""
-              className="px-3 bg-white outline-none rounded-xl h-[50px]"
-            />
-            <input
-              type="text"
-              name=""
-              id=""
-              className="px-3 bg-white outline-none rounded-xl h-[50px]"
-            />
-            <button className="bg-[#FF9900] uppercase text-white outline-none rounded-xl h-[50px]">
-              {translations[language].consultar}{" "}
-            </button>
-          </div>
+      <div className="w-full bg-[#121212]">
+        <div className="max-w-[95%] w-[500px] md:w-[800px] 2xl:w-[1080px]  mx-auto relative py-10 ">
+          <CaroucelEvetos />
         </div>
       </div>
+
+      <ContactanosExternos />
     </>
   );
 }

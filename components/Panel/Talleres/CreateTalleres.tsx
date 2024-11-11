@@ -19,19 +19,24 @@ import { getAuthTokenClient } from "@/lib/getUserData";
 import { toast } from "react-toastify";
 import { MdEdit } from "react-icons/md";
 import { FaCirclePlus } from "react-icons/fa6";
+import { T_Categoria_I } from "./T_Categorias";
 
 interface Props {
   onClose: (newFundador: any) => void;
   edit?: boolean;
   image_p?: string;
   id_p?: number;
+  categoriaId_p?: number;
+  listCategorias: T_Categoria_I[]
 }
 
 export default function CreateTalleres({
   onClose,
+  listCategorias,
   edit = false,
   image_p = "",
   id_p = 0,
+  categoriaId_p = 0
 }: Props) {
   const [open, setOpen] = useState(false);
   const token = getAuthTokenClient();
@@ -39,6 +44,7 @@ export default function CreateTalleres({
   const [id, setId] = useState(id_p);
   const [image, setImage] = useState<string>(image_p);
   const [fileImage, setFileImage] = useState<any>("");
+  const [categoriaId, setCategoriaId] = useState(categoriaId_p)
 
   const text = edit ? "Editar" : "Crear";
 
@@ -49,6 +55,7 @@ export default function CreateTalleres({
   const onSubmit = async () => {
     const dataJson = {
       image,
+      categorias_talleresId: categoriaId
     };
 
     const createFundadoresToast = toast.loading(
@@ -168,6 +175,15 @@ export default function CreateTalleres({
           <DialogHeader>
             <DialogTitle>{text} Popup</DialogTitle>
             <DialogDescription className="w-full flex flex-col pt-5 gap-5">
+              <div className="grid w-full items-center gap-1.5">
+                <Label htmlFor="image">Categoria</Label>
+                <select onChange={(e) => setCategoriaId(Number(e.target.value))} className="w-full bg-[#121212] text-white h-[50px] px-3">
+                  <option disabled>Selecciona la categoria</option>
+                  {listCategorias.map((categoria, index) => (
+                    <option selected={categoria.id == categoriaId} value={categoria.id}>{categoria.categoria}</option>
+                  ))}
+                </select>
+              </div>
               <div className="grid w-full items-center gap-1.5">
                 <Label htmlFor="image">Imagen</Label>
                 <Input

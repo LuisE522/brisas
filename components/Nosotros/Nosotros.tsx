@@ -29,9 +29,12 @@ export default function Nosotros() {
       <div className="w-full h-[250px] sm:h-[350px] md:h-screen relative flex justify-end">
         <div className="max-w-[100%] w-[300px] md:w-[500px] 2xl:w-[900px] flex justify-end lg:justify-start h-full !relative pr-3 lg:p-0">
           <div className="h-full w-[70%] sm:w-full md:w-[90%] 2xl:w-[70%] flex flex-col gap-1 md:gap-3 lg:gap-5 items-start justify-center text-white">
-            <span className="text-sm md:text-base lg:text-3xl 2xl:text-5xl md:ml-2 2xl:ml-4 font-bold">
-              {translations[language].nosotros_titulo}
-            </span>
+            <span
+              className="text-sm md:text-base lg:text-3xl 2xl:text-5xl font-bold"
+              dangerouslySetInnerHTML={{
+                __html: translations[language].nosotros_titulo,
+              }}
+            ></span>
             <p className="text-[8px] sm:text-xs md:text-sm lg:text-lg 2xl:text-2xl">
               {translations[language].nosotros_subtitulo}
             </p>
@@ -57,12 +60,8 @@ export default function Nosotros() {
               {translations[language].nsotros_nuestra_institucion}
             </h1>
             <div className="w-full flex flex-col gap-2 md:gap-5 text-xs sm:text-sm md:text-xl 2xl:text-2xl">
-              <p>
-              {translations[language].nsotros_nuestra_institucion_p1}
-              </p>
-              <p>
-              {translations[language].nsotros_nuestra_institucion_p2}
-              </p>
+              <p>{translations[language].nsotros_nuestra_institucion_p1}</p>
+              <p>{translations[language].nsotros_nuestra_institucion_p2}</p>
             </div>
           </div>
           <div className="w-full flex justify-center">
@@ -98,12 +97,10 @@ export default function Nosotros() {
               className="w-full h-auto absolute top-0 scale-x-[-1] right-36"
             />
             <h1 className="font-bold text-base sm:text-2xl md:text-5xl 2xl:text-7xl">
-            {translations[language].nsotros_mision}
+              {translations[language].nsotros_mision}
             </h1>
             <div className="w-full flex flex-col gap-2 md:gap-5 text-xs sm:text-sm md:text-xl 2xl:text-2xl">
-              <p>
-              {translations[language].nsotros_mision_p1}
-              </p>
+              <p>{translations[language].nsotros_mision_p1}</p>
             </div>
           </div>
         </div>
@@ -119,12 +116,10 @@ export default function Nosotros() {
           />
           <div className="w-full pl-5 sm:pl-10 md:pl-20 lg:pl-36 xl:pl-52 flex flex-col gap-3 md:gap-5 justify-center relative">
             <h1 className="font-bold text-base sm:text-2xl md:text-5xl 2xl:text-7xl">
-            {translations[language].nsotros_vision}
+              {translations[language].nsotros_vision}
             </h1>
             <div className="w-full flex flex-col gap-2 md:gap-5 text-xs sm:text-sm md:text-xl 2xl:text-2xl">
-              <p>
-              {translations[language].nsotros_vision_p1}
-              </p>
+              <p>{translations[language].nsotros_vision_p1}</p>
             </div>
           </div>
           <div className="w-full flex justify-center">

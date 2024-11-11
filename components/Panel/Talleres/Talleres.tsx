@@ -6,7 +6,9 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 interface Props {
-  talleres: Talleres_I[];
+  taller: Talleres_I;
+  categoria_id: number
+  listCategorias: T_Categoria_I[]
 }
 
 export interface Talleres_I {
@@ -27,11 +29,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import Image from "next/image";
 import CreateTalleres from "./CreateTalleres";
+import { T_Categoria_I } from "./T_Categorias";
 
-export default function Talleres({ talleres }: Props) {
-  const [listTalleres, setListTalleres] = useState(talleres);
+export default function Talleres({ taller, categoria_id, listCategorias }: Props) {
 
-  console.log(talleres);
 
   const token = getAuthTokenClient();
 
@@ -44,10 +45,9 @@ export default function Talleres({ talleres }: Props) {
   };
 
   const closeCreate = (newCategoria: any) => {
-    /* console.log(newFundador) */
-    if (newCategoria.edit == false) {
+    /* if (newCategoria.edit == false) {
       setListTalleres((prevCategoria: any) => [...prevCategoria, newCategoria]);
-    }
+    } */
   };
 
   const onDeletePopup = async (id: number | undefined) => {
@@ -82,87 +82,71 @@ export default function Talleres({ talleres }: Props) {
       type: "success",
       autoClose: 2000,
     });
-
-    setListTalleres((prevPopup: any) =>
-      prevPopup.filter((popup: any) => popup.id !== id)
-    );
   };
 
   return (
     <>
-      <div className="w-full flex flex-col gap-5">
-        <div className="bg-black/40 px-5 py-3 rounded-lg flex flex-row justify-between items-center">
-          <h1 className="text-sm lg:text-xl">Galeria de talleres</h1>
-          <CreateTalleres onClose={(newFundador) => closeCreate(newFundador)} />
-        </div>
+      <div
+        className="w-full flex flex-col gap-2.5 cursor-pointer"
+      /* onClick={() => showDialog(index)} */
+      >
+        <div className="w-full flex justify-end">
+          <div
+            className={`w-full h-[200px] md:h-[250px] xl:h-[300px] ${taller.image ? "" : "bg-slate-400"
+              } !relative rounded-lg overflow-hidden`}
+          >
+            {taller.image && (
+              <Image
+                /* unoptimized */
+                src={taller.image}
+                alt="alt"
+                width={300}
+                height={250}
+                className="w-full h-full object-cover"
+              />
+            )}
 
-        <div className="w-full grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-3 gap-y-7">
-          {listTalleres.map((taller: Talleres_I, index: number) => (
-            <div
-              className="w-full flex flex-col gap-2.5 cursor-pointer"
-              key={index}
-              onClick={() => showDialog(index)}
-            >
-              <div className="w-full flex justify-end">
-                <div
-                  className={`w-full h-[200px] md:h-[250px] xl:h-[300px] ${
-                    taller.image ? "" : "bg-slate-400"
-                  } !relative rounded-lg overflow-hidden`}
-                >
-                  {taller.image && (
-                    <Image
-                      /* unoptimized */
-                      src={taller.image}
-                      alt="alt"
-                      width={300}
-                      height={250}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-
-                  {/* <div className="absolute bottom-1 right-1 flex flex-row gap-1 z-20">
+            {/* <div className="absolute bottom-1 right-1 flex flex-row gap-1 z-20">
                   <span className="px-3 py-1 text-xs text-white bg-black/70 rounded-lg">
 
                   </span>
                 </div> */}
-                </div>
-              </div>
+          </div>
+        </div>
 
-              <div className="w-full flex justify-between">
-                <div className="w-fit px-3 py-1 text-xs text-white bg-black/70 rounded-lg">
-                  <CreateTalleres
-                    onClose={(newPopup) => closeCreate(newPopup)}
-                    id_p={taller.id}
-                    image_p={taller.image}
-                    edit={true}
-                  />
-                </div>
-                <AlertDialog>
-                  <AlertDialogTrigger className="w-fit px-3 py-1 text-xs text-white bg-black/70 rounded-lg">
-                    Eliminar
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>
-                        ¿Estas seguro de eliminar este taller?
-                      </AlertDialogTitle>
-                      <AlertDialogDescription>
-                        Esta acción no se puede deshacer.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                      <AlertDialogAction
-                        onClick={() => onDeletePopup(taller.id)}
-                      >
-                        Continuar
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
-              </div>
-            </div>
-          ))}
+        <div className="w-full flex justify-between">
+          <div className="w-fit px-3 py-1 text-xs text-white bg-black/70 rounded-lg">
+            <CreateTalleres
+              onClose={(newPopup) => closeCreate(newPopup)}
+              id_p={taller.id}
+              image_p={taller.image}
+              edit={true}
+              listCategorias={listCategorias}
+            />
+          </div>
+          <AlertDialog>
+            <AlertDialogTrigger className="w-fit px-3 py-1 text-xs text-white bg-black/70 rounded-lg">
+              Eliminar
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                  ¿Estas seguro de eliminar este taller?
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  Esta acción no se puede deshacer.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={() => onDeletePopup(taller.id)}
+                >
+                  Continuar
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
     </>
