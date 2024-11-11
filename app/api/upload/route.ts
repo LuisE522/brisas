@@ -43,7 +43,6 @@ export const POST = async (req: NextRequest) => {
 
     const relativeUploadDir = `/uploads${ruta ? ruta : ""}`;
 
-    //const uploadDir = join("var", "www", "brisas", "public", relativeUploadDir);
     const uploadDir = join(process.cwd(), "public", relativeUploadDir);
 
     await fs.mkdir(uploadDir, { recursive: true });
